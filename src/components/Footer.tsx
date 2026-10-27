@@ -26,7 +26,7 @@ export default async function Footer() {
         <div className="md:col-span-2">
           <a
             href="#top"
-            className="inline-flex rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+            className="inline-flex rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
             aria-label="JatJeng home"
           >
             <Logo />

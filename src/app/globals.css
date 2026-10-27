@@ -2,12 +2,16 @@
 
 @theme inline {
   --color-background: oklch(100% 0 0);
-  --color-foreground: oklch(12.9% 0.042 264.695);
-  /* JatJeng brand purple (#5146E5), used for primary actions and focus states. */
-  --color-primary: oklch(51.19% 0.23 277.6);
-  --color-primary-dark: oklch(44.39% 0.211 276.53);
-  --color-primary-light: oklch(66.41% 0.159 284.9);
-  --color-primary-foreground: oklch(98.4% 0.003 247.858);
+  /* Theme ink (#17213C) — primary text color. */
+  --color-foreground: oklch(25.36% 0.053 267.23);
+  /* Theme primary (#3CA6F2) — solid button/accent fills. Paired with ink foreground,
+     since white text on this light a blue fails contrast (2.65:1). */
+  --color-primary: oklch(69.92% 0.147 244.21);
+  /* Deeper primary, used for button hover state and anywhere primary needs to carry
+     text/sit on white directly (4.77:1 with white, passes AA). */
+  --color-primary-dark: oklch(55.24% 0.116 246.84);
+  --color-primary-light: oklch(79.64% 0.0998 241.09);
+  --color-primary-foreground: oklch(25.36% 0.053 267.23);
   --color-secondary: oklch(96.8% 0.007 247.896);
   --color-accent: oklch(96.8% 0.007 247.896);
   --color-muted: oklch(96.8% 0.007 247.896);
@@ -15,11 +19,12 @@
   --color-border: oklch(92.9% 0.013 255.508);
   --color-card: oklch(100% 0 0);
 
-  /* Brand accent — same purple family as --color-primary, used for gradients and highlights. */
-  --color-brand: oklch(51.19% 0.23 277.6);
-  --color-brand-2: oklch(61.34% 0.191 284.77);
+  /* Brand accent = primary-dark, so brand-colored text/icons on white stay accessible. */
+  --color-brand: oklch(55.24% 0.116 246.84);
+  /* Theme secondary (#3A37B2) — gradient partner and dark solid surfaces (white text safe). */
+  --color-brand-2: oklch(42.59% 0.188 275.93);
   /* Secondary accent reserved for small contrast details (chart series, status dots). */
-  --color-warm: oklch(78% 0.14 70);
+  --color-warm: oklch(56% 0.145 50);
 
   --font-sans: var(--font-manrope);
   --font-display: var(--font-display-grotesque);
@@ -28,9 +33,9 @@
 
 .bg-hero {
   background-image:
-    radial-gradient(circle, oklch(60% 0.03 270 / 0.3) 1px, transparent 1.5px),
-    radial-gradient(60% 60% at 50% 0%, oklch(91% 0.06 278 / 0.55), transparent 70%),
-    radial-gradient(40% 50% at 85% 20%, oklch(93% 0.05 290 / 0.4), transparent 70%);
+    radial-gradient(circle, oklch(60% 0.03 267 / 0.3) 1px, transparent 1.5px),
+    radial-gradient(60% 60% at 50% 0%, oklch(92% 0.05 244 / 0.5), transparent 70%),
+    radial-gradient(40% 50% at 85% 20%, oklch(93% 0.05 276 / 0.4), transparent 70%);
   background-size: 22px 22px, auto, auto;
   background-position: -11px -11px, 0 0, 0 0;
 }

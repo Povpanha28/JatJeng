@@ -31,7 +31,7 @@ export default function FinalCTA() {
         />
 
         <div className="relative">
-          <h2 className="font-display text-5xl font-extrabold leading-[0.95] tracking-tight md:text-8xl">
+          <h2 className="font-display text-[clamp(2.5rem,8vh,6rem)] font-extrabold leading-[0.95] tracking-tight">
             Your next great event
             <br />
             starts with a better plan.

@@ -52,7 +52,7 @@ export function WebsitesMockup() {
     <div className="overflow-hidden rounded-2xl border border-border bg-background shadow-soft">
       <WindowChrome label="jatjeng.app/budget" />
       <div className="p-4">
-        <div className="rounded-xl bg-brand-gradient p-5 text-primary-foreground">
+        <div className="rounded-xl bg-brand-gradient p-5 text-white">
           <p className="font-display text-xl font-bold leading-tight">
             $12,400
             <br />

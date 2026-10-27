@@ -10,6 +10,7 @@ import {
   Paperclip,
   ArrowUp,
 } from "lucide-react";
+import HeroArtifacts from "./HeroArtifacts";
 
 const categories = [
   {
@@ -53,53 +54,6 @@ const categories = [
 const TYPE_MS = 45;
 const ERASE_MS = 22;
 const HOLD_MS = 1800;
-
-const stickyNotes = [
-  {
-    text: "Venue not confirmed yet!! Call Mon.",
-    color: "bg-amber-200/90",
-    className: "left-[2%] top-[14%] -rotate-6",
-  },
-  {
-    text: "120 or 150 attendees?? Ask sponsor",
-    color: "bg-emerald-200/90",
-    className: "right-[1%] top-[8%] rotate-6",
-  },
-  {
-    text: "Catering budget — ask Sam for a quote",
-    color: "bg-sky-200/90",
-    className: "left-[4%] top-[52%] rotate-3",
-  },
-  {
-    text: "Move keynote to 9:30??",
-    color: "bg-pink-200/90",
-    className: "right-[3%] top-[48%] -rotate-4",
-  },
-];
-
-function ChaosNotes() {
-  const reduceMotion = useReducedMotion();
-  return (
-    <div
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-0 hidden lg:block"
-    >
-      {stickyNotes.map((note, i) => (
-        <motion.div
-          key={note.text}
-          initial={reduceMotion ? {} : { opacity: 0, scale: 0.8, y: 10 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
-          className={`absolute w-44 rounded-sm p-3 shadow-soft ${note.color} ${note.className}`}
-        >
-          <p className="font-hand text-[15px] leading-snug text-neutral-800">
-            {note.text}
-          </p>
-        </motion.div>
-      ))}
-    </div>
-  );
-}
 
 export default function Hero() {
   const [activeCategory, setActiveCategory] = useState(0);
@@ -161,7 +115,7 @@ export default function Hero() {
       id="top"
       className="relative overflow-hidden bg-hero px-5 pb-24 pt-20 md:pt-28"
     >
-      <ChaosNotes />
+      <HeroArtifacts />
 
       <motion.div
         {...fade(0)}
@@ -170,7 +124,11 @@ export default function Hero() {
         <h1 className="font-display text-[3.2rem] font-extrabold leading-[0.95] tracking-[-0.04em] sm:text-7xl md:text-[6.5rem]">
           Plan better <span className="text-brand-gradient">events</span>.
           <br />
-          Without the chaos.
+          Without the{" "}
+          <span className="relative inline-block line-through decoration-red-500 decoration-[6px] sm:decoration-[8px] md:decoration-[10px]">
+            chaos
+          </span>
+          .
         </h1>
 
         <p className="mx-auto mt-7 max-w-3xl text-lg text-muted-foreground md:text-xl">

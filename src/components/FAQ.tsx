@@ -88,7 +88,7 @@ export default function FAQ() {
                     aria-expanded={open}
                     aria-controls={panelId}
                     onClick={() => setOpenIndex(open ? null : i)}
-                    className="flex w-full items-center justify-between gap-4 py-6 text-left font-display text-lg font-semibold focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary"
+                    className="flex w-full items-center justify-between gap-4 py-6 text-left font-display text-lg font-semibold focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand"
                   >
                     {faq.q}
                     <Plus
