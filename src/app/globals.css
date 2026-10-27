@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: oklch(100% 0 0);
+  --color-foreground: oklch(12.9% 0.042 264.695);
+  /* JatJeng brand purple (#5146E5), used for primary actions and focus states. */
+  --color-primary: oklch(51.19% 0.23 277.6);
+  --color-primary-dark: oklch(44.39% 0.211 276.53);
+  --color-primary-light: oklch(66.41% 0.159 284.9);
+  --color-primary-foreground: oklch(98.4% 0.003 247.858);
+  --color-secondary: oklch(96.8% 0.007 247.896);
+  --color-accent: oklch(96.8% 0.007 247.896);
+  --color-muted: oklch(96.8% 0.007 247.896);
+  --color-muted-foreground: oklch(55.4% 0.046 257.417);
+  --color-border: oklch(92.9% 0.013 255.508);
+  --color-card: oklch(100% 0 0);
+
+  /* Brand accent — same purple family as --color-primary, used for gradients and highlights. */
+  --color-brand: oklch(51.19% 0.23 277.6);
+  --color-brand-2: oklch(61.34% 0.191 284.77);
+  /* Secondary accent reserved for small contrast details (chart series, status dots). */
+  --color-warm: oklch(78% 0.14 70);
+
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-display-grotesque);
+  --font-hand: var(--font-kalam);
+}
+
+.bg-hero {
+  background-image:
+    radial-gradient(circle, oklch(60% 0.03 270 / 0.3) 1px, transparent 1.5px),
+    radial-gradient(60% 60% at 50% 0%, oklch(91% 0.06 278 / 0.55), transparent 70%),
+    radial-gradient(40% 50% at 85% 20%, oklch(93% 0.05 290 / 0.4), transparent 70%);
+  background-size: 22px 22px, auto, auto;
+  background-position: -11px -11px, 0 0, 0 0;
+}
+
+.bg-brand-gradient {
+  background-image: linear-gradient(
+    120deg,
+    var(--color-brand),
+    var(--color-brand-2)
+  );
+}
+
+.text-brand-gradient {
+  background-image: linear-gradient(
+    120deg,
+    var(--color-brand),
+    var(--color-brand-2)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.shadow-soft {
+  box-shadow:
+    0 1px 2px oklch(0% 0 0 / 0.04),
+    0 12px 40px -12px oklch(0% 0 0 / 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Keep anchored sections clear of the fixed navbar. */
+  scroll-padding-top: 4rem;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Respect the OS "reduce motion" setting for CSS-driven motion.
+   Framer Motion is handled per-component via useReducedMotion(). */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-primary) 18%, transparent);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border: 3px solid var(--color-background);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
