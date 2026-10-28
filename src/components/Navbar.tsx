@@ -35,16 +35,16 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header
-      ref={navRef}
-      className={`sticky top-0 z-50 border-b transition-all duration-300 ${
-        scrolled
-          ? "border-border bg-background/75 backdrop-blur-xl"
-          : "border-transparent bg-transparent"
-      }`}
-    >
-      <nav aria-label="Main" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <header ref={navRef} className="sticky top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
+      <nav
+        aria-label="Main"
+        className={`mx-auto max-w-7xl rounded-full border bg-background/80 backdrop-blur-xl transition-all duration-300 ${
+          scrolled
+            ? "border-border shadow-soft"
+            : "border-border/60 shadow-sm"
+        }`}
+      >
+        <div className="flex h-16 items-center justify-between px-4 sm:px-6">
           <a
             href="#top"
             className="shrink-0 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
@@ -59,7 +59,7 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="px-3 py-2 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+                className="px-3 py-2 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
               >
                 {link.label}
               </a>
@@ -69,7 +69,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-2">
             <a
               href="#top"
-              className="px-3 py-2 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+              className="px-3 py-2 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
             >
               Log in
             </a>
@@ -86,7 +86,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="-mr-2 rounded-lg p-2 text-foreground/70 transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand lg:hidden"
+            className="-mr-2 rounded-full p-2 text-foreground/70 transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand lg:hidden"
             aria-expanded={mobileOpen}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
@@ -103,15 +103,15 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.22, ease: "easeInOut" }}
-            className="overflow-hidden border-b border-border bg-background lg:hidden"
+            className="mx-auto mt-2 max-w-7xl overflow-hidden lg:hidden"
           >
-            <div className="max-h-[calc(100dvh-4rem)] space-y-1 overflow-y-auto px-4 py-4">
+            <div className="space-y-1 rounded-3xl border border-border bg-background p-4 shadow-soft">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted"
+                  className="block rounded-xl px-3 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted"
                 >
                   {link.label}
                 </a>
@@ -119,7 +119,7 @@ export default function Navbar() {
               <a
                 href="#top"
                 onClick={() => setMobileOpen(false)}
-                className="block rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted"
+                className="block rounded-xl px-3 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted"
               >
                 Log in
               </a>
