@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 import Logo from "./Logo";
 
 type NavItem = { label: string; href: string };
@@ -67,12 +68,13 @@ export default function Navbar() {
           </div>
 
           <div className="hidden lg:flex items-center gap-2">
-            <a
-              href="#top"
+            {/* No auth yet — Log in goes straight to the events dashboard for now. */}
+            <Link
+              href="/events"
               className="px-3 py-2 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
             >
               Log in
-            </a>
+            </Link>
             <motion.a
               href="#top"
               whileHover={{ scale: 1.04 }}
@@ -116,13 +118,13 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <a
-                href="#top"
+              <Link
+                href="/events"
                 onClick={() => setMobileOpen(false)}
                 className="block rounded-xl px-3 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted"
               >
                 Log in
-              </a>
+              </Link>
               <div className="pt-3">
                 <a
                   href="#top"

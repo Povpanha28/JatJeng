@@ -121,3 +121,32 @@ export const MapPinIcon = (p: IconProps) => (
     <circle cx="12" cy="10" r="3" />
   </Svg>
 );
+
+export const UserIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <circle cx="12" cy="8" r="4" />
+    <path d="M4 21a8 8 0 0 1 16 0" />
+  </Svg>
+);
+
+export const CreditCardIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <rect x="3" y="5" width="18" height="14" rx="2.5" />
+    <path d="M3 10h18M7 15h4" />
+  </Svg>
+);
+
+export const HelpCircleIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3" />
+    <path d="M12 17h.01" />
+  </Svg>
+);
+
+export const LogOutIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+    <path d="m16 17 5-5-5-5M21 12H9" />
+  </Svg>
+);
