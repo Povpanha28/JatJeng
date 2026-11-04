@@ -150,3 +150,152 @@ export const LogOutIcon = (p: IconProps) => (
     <path d="m16 17 5-5-5-5M21 12H9" />
   </Svg>
 );
+
+// Event workspace (Overview prototype).
+
+export const ChevronLeftIcon = (p: IconProps) => (
+  <Svg strokeWidth={2} {...p}>
+    <path d="M15 18l-6-6 6-6" />
+  </Svg>
+);
+
+export const ChevronRightIcon = (p: IconProps) => (
+  <Svg strokeWidth={2} {...p}>
+    <path d="M9 6l6 6-6 6" />
+  </Svg>
+);
+
+export const ChevronsUpDownIcon = (p: IconProps) => (
+  <Svg strokeWidth={2} {...p}>
+    <path d="M7 15l5 5 5-5M7 9l5-5 5 5" />
+  </Svg>
+);
+
+export const PanelCloseIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <rect x="3" y="3" width="18" height="18" rx="3" />
+    <path d="M9 3v18M16 10l-2 2 2 2" />
+  </Svg>
+);
+
+export const PanelOpenIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <rect x="3" y="3" width="18" height="18" rx="3" />
+    <path d="M9 3v18M14 10l2 2-2 2" />
+  </Svg>
+);
+
+export const CheckIcon = (p: IconProps) => (
+  <Svg strokeWidth={2.4} {...p}>
+    <path d="M5 12l5 5L20 7" />
+  </Svg>
+);
+
+export const GridIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" />
+  </Svg>
+);
+
+export const CalendarAltIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" />
+  </Svg>
+);
+
+export const TasksIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+  </Svg>
+);
+
+export const WalletIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 10h18M7 15h4" />
+  </Svg>
+);
+
+export const ChartIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M3 3v18h18M7 16v-4M12 16V8M17 16v-7" />
+  </Svg>
+);
+
+export const FileIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8M8 17h5" />
+  </Svg>
+);
+
+export const ShieldIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM9 12l2 2 4-4" />
+  </Svg>
+);
+
+export const SlidersIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6" />
+  </Svg>
+);
+
+export const ShareIcon = (p: IconProps) => (
+  <Svg strokeWidth={1.9} {...p}>
+    <path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v13" />
+  </Svg>
+);
+
+export const BriefcaseIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <rect x="3" y="7" width="18" height="13" rx="2" />
+    <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+  </Svg>
+);
+
+export const RefreshIcon = (p: IconProps) => (
+  <Svg strokeWidth={2} {...p}>
+    <path d="M21 12a9 9 0 1 1-3-6.7L21 8M21 3v5h-5" />
+  </Svg>
+);
+
+export const MailIcon = (p: IconProps) => (
+  <Svg strokeWidth={2} {...p}>
+    <rect x="3" y="5" width="18" height="14" rx="2" />
+    <path d="M3 7l9 6 9-6" />
+  </Svg>
+);
+
+export const MoreVerticalIcon = ({ size = 20, ...props }: IconProps) => (
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <circle cx="12" cy="5" r="1.8" />
+    <circle cx="12" cy="12" r="1.8" />
+    <circle cx="12" cy="19" r="1.8" />
+  </svg>
+);
+
+export const FlagIcon = (p: IconProps) => (
+  <Svg strokeWidth={2} {...p}>
+    <path d="M4 22V4M4 4h12l-2 4 2 4H4" />
+  </Svg>
+);
+
+export const ListBulletIcon = (p: IconProps) => (
+  <Svg strokeWidth={2} {...p}>
+    <path d="M9 6h12M9 12h12M9 18h12M4 6h.01M4 12h.01M4 18h.01" />
+  </Svg>
+);
+
+export const BoardIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <rect x="3" y="3" width="7" height="18" rx="1.5" />
+    <rect x="14" y="3" width="7" height="11" rx="1.5" />
+  </Svg>
+);
+
+export const MoreHorizontalIcon = ({ size = 20, ...props }: IconProps) => (
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <circle cx="5" cy="12" r="1.8" />
+    <circle cx="12" cy="12" r="1.8" />
+    <circle cx="19" cy="12" r="1.8" />
+  </svg>
+);
