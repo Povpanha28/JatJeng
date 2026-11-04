@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ACCENT, EVENTS, PEOPLE, type EventItem } from "./data";
 import { ArrowRightIcon, FilterIcon, HeartIcon, MapPinIcon, PlusIcon, SearchIcon } from "./icons";
 
@@ -279,16 +280,15 @@ function EventCard({
             </div>
             <span className="text-[13px] font-medium text-[#64748B]">{e.members} members</span>
           </div>
-          {/* TODO: point at the event overview route once it exists. */}
-          <a
-            href="#"
+          <Link
+            href={`/events/${e.id}`}
             aria-label={`Open ${e.title}`}
             className="flex min-h-11 items-center gap-1 px-1 text-sm font-bold no-underline hover:opacity-80"
             style={{ color: ACCENT }}
           >
             Open
             <ArrowRightIcon size={16} />
-          </a>
+          </Link>
         </div>
       </div>
     </article>
