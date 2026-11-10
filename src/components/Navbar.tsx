@@ -68,15 +68,14 @@ export default function Navbar() {
           </div>
 
           <div className="hidden lg:flex items-center gap-2">
-            {/* No auth yet — Log in goes straight to the events dashboard for now. */}
             <Link
-              href="/events"
+              href="/login"
               className="px-3 py-2 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
             >
               Log in
             </Link>
             <motion.a
-              href="#top"
+              href="/signup"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
               className="inline-flex items-center rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
@@ -119,20 +118,20 @@ export default function Navbar() {
                 </a>
               ))}
               <Link
-                href="/events"
+                href="/login"
                 onClick={() => setMobileOpen(false)}
                 className="block rounded-xl px-3 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted"
               >
                 Log in
               </Link>
               <div className="pt-3">
-                <a
-                  href="#top"
+                <Link
+                  href="/signup"
                   onClick={() => setMobileOpen(false)}
                   className="block w-full rounded-full bg-primary px-5 py-3 text-center text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
                 >
                   Get Started
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>
