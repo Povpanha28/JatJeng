@@ -299,3 +299,54 @@ export const MoreHorizontalIcon = ({ size = 20, ...props }: IconProps) => (
     <circle cx="19" cy="12" r="1.8" />
   </svg>
 );
+
+export const MenuIcon = (p: IconProps) => (
+  <Svg strokeWidth={2} {...p}>
+    <path d="M4 7h16M4 12h16M4 17h16" />
+  </Svg>
+);
+
+export const XIcon = (p: IconProps) => (
+  <Svg strokeWidth={2} {...p}>
+    <path d="M18 6 6 18M6 6l12 12" />
+  </Svg>
+);
+
+export const ArrowUpIcon = (p: IconProps) => (
+  <Svg strokeWidth={2.2} {...p}>
+    <path d="M12 19V5M6 11l6-6 6 6" />
+  </Svg>
+);
+
+export const UploadIcon = (p: IconProps) => (
+  <Svg strokeWidth={2} {...p}>
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12" />
+  </Svg>
+);
+
+export const AlertTriangleIcon = (p: IconProps) => (
+  <Svg strokeWidth={2} {...p}>
+    <path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" />
+    <path d="M12 9v4M12 17h.01" />
+  </Svg>
+);
+
+export const ShieldCheckIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+    <path d="m9 12 2 2 4-4" />
+  </Svg>
+);
+
+export const FileTextIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+    <path d="M14 2v6h6M8 13h8M8 17h5" />
+  </Svg>
+);
+
+export const DownloadIcon = (p: IconProps) => (
+  <Svg strokeWidth={2} {...p}>
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+  </Svg>
+);

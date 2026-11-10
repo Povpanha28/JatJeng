@@ -5,6 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ACCENT, EVENTS, type EventItem } from "./data";
+import { DateChip, statusDot } from "./DateChip";
+import JumpTo from "./JumpTo";
 import {
   CalendarAltIcon,
   ChartIcon,
@@ -16,7 +18,6 @@ import {
   PanelCloseIcon,
   PanelOpenIcon,
   PlusIcon,
-  SearchIcon,
   ShieldIcon,
   SlidersIcon,
   SparklesIcon,
@@ -42,20 +43,20 @@ const GROUPS: { label: string; items: NavItem[] }[] = [
       { id: "calendar", label: "Calendar", Icon: CalendarAltIcon, path: "/calendar" },
       { id: "tasks", label: "Tasks", Icon: TasksIcon, badge: 2, path: "/tasks" },
       { id: "team", label: "Team", Icon: UsersIcon },
-      { id: "budget", label: "Budget", Icon: WalletIcon },
+      { id: "budget", label: "Budget", Icon: WalletIcon, path: "/budget" },
     ],
   },
   {
     label: "Insights",
     items: [
-      { id: "stats", label: "Statistics", Icon: ChartIcon },
-      { id: "docs", label: "Documents", Icon: FileIcon },
+      { id: "stats", label: "Statistics", Icon: ChartIcon, path: "/statistics" },
+      { id: "docs", label: "Documents", Icon: FileIcon, path: "/documents" },
     ],
   },
   {
     label: "Manage",
     items: [
-      { id: "roles", label: "Roles & permissions", Icon: ShieldIcon },
+      { id: "roles", label: "Roles & permissions", Icon: ShieldIcon, path: "/roles" },
       { id: "settings", label: "Event settings", Icon: SlidersIcon },
     ],
   },
@@ -73,32 +74,6 @@ function useActiveId(event: EventItem) {
   return match?.id ?? "overview";
 }
 
-const statusDot = (e: EventItem) => (e.status === "Active" ? "#16A34A" : "#F59E0B");
-
-function DateChip({ event: e, size }: { event: EventItem; size: "sm" | "md" }) {
-  const md = size === "md";
-  return (
-    <span
-      className={`block shrink-0 overflow-hidden bg-white text-center shadow-[0_0_0_1px_#E6E8F0] ${
-        md ? "w-[42px] rounded-[10px]" : "w-[38px] rounded-[9px]"
-      }`}
-    >
-      <span
-        className={`block py-0.5 font-extrabold tracking-[0.08em] text-white ${md ? "text-[9px]" : "text-[8px]"}`}
-        style={{ background: e.ink }}
-      >
-        {e.mon}
-      </span>
-      <span
-        className={`block font-extrabold leading-none text-[#0F172A] ${
-          md ? "pb-[5px] pt-1 text-[17px]" : "pb-1 pt-[3px] text-[15px]"
-        }`}
-      >
-        {e.day}
-      </span>
-    </span>
-  );
-}
 
 function EventSwitcher({ event }: { event: EventItem }) {
   const [open, setOpen] = useState(false);
@@ -201,7 +176,7 @@ function EventSwitcher({ event }: { event: EventItem }) {
             })}
             <div className="mx-1 my-1.5 h-px bg-[#EEF0F5]" />
             <Link
-              href="/events"
+              href="/events/all"
               role="menuitem"
               tabIndex={-1}
               onClick={() => setOpen(false)}
@@ -210,7 +185,6 @@ function EventSwitcher({ event }: { event: EventItem }) {
               <GridIcon size={16} strokeWidth={2} />
               View all events
             </Link>
-            {/* TODO: point at the create-event flow once it exists. */}
             <Link
               href="/events"
               role="menuitem"
@@ -236,7 +210,7 @@ export default function EventSidebar({ event }: { event: EventItem }) {
     return (
       <aside
         aria-label="Event workspace"
-        className="flex flex-[0_0_76px] flex-col items-center gap-1.5 border-r border-[#E6E8F0] bg-white py-4"
+        className="print:hidden flex flex-[0_0_76px] flex-col items-center gap-1.5 border-r border-[#E6E8F0] bg-white py-4"
       >
         <button
           type="button"
@@ -287,11 +261,11 @@ export default function EventSidebar({ event }: { event: EventItem }) {
   return (
     <aside
       aria-label="Event workspace"
-      className="box-border flex max-w-full flex-[1_1_280px] flex-col border-r border-[#E6E8F0] bg-white px-3.5 pb-6 pt-4"
+      className="box-border flex max-w-full flex-[1_1_280px] flex-col print:hidden border-r border-[#E6E8F0] bg-white px-3.5 pb-6 pt-4"
     >
       <div className="flex items-center justify-between px-0.5 pb-3">
         <Link
-          href="/events"
+          href="/events/all"
           className="flex min-h-9 items-center gap-1.5 rounded-lg pl-1 pr-2 text-[13px] font-semibold text-[#475569] no-underline hover:text-[#0F172A]"
         >
           <ChevronLeftIcon size={16} />
@@ -309,16 +283,7 @@ export default function EventSidebar({ event }: { event: EventItem }) {
 
       <EventSwitcher event={event} />
 
-      <button
-        type="button"
-        className="mt-3 flex h-10 cursor-pointer items-center gap-2.5 rounded-[10px] border border-[#E6E8F0] bg-white pl-3 pr-2.5 text-left text-[13px] font-medium text-[#64748B]"
-      >
-        <SearchIcon size={16} />
-        <span className="flex-auto">Jump to…</span>
-        <span className="rounded-md border border-[#E2E8F0] bg-[#F1F5F9] px-1.5 py-px text-[11px] font-bold text-[#475569]">
-          ⌘K
-        </span>
-      </button>
+      <JumpTo className="mt-3" />
 
       <nav aria-label="Workspace" className="mt-[18px] flex flex-col gap-[18px]">
         {GROUPS.map((g) => (

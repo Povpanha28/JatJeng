@@ -62,8 +62,8 @@ export default async function EventOverviewPage({ params }: PageProps<"/events/[
             aria-label="Breadcrumb"
             className="flex items-center gap-1.5 text-[13px] font-medium text-[#64748B]"
           >
-            <Link href="/events" className="text-[#64748B] no-underline hover:text-[#0F172A]">
-              My Events
+            <Link href="/events/all" className="text-[#64748B] no-underline hover:text-[#0F172A]">
+              Your events
             </Link>
             <ChevronRightIcon size={14} />
             <span aria-current="page" className="font-semibold text-[#0F172A]">
