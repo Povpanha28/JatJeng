@@ -38,7 +38,7 @@ export default function EventsList() {
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex flex-wrap items-center gap-4">
           <h2 id="events-title" className="m-0 text-[22px] font-extrabold tracking-[-0.02em]">
-            Your events
+            All events
           </h2>
           <div
             role="tablist"
@@ -130,18 +130,18 @@ export default function EventsList() {
           </div>
         )}
 
-        <button
-          type="button"
-          className="flex min-h-[360px] cursor-pointer flex-col items-center justify-center gap-3 rounded-[22px] border-[1.5px] border-dashed border-[#C7CCDA] bg-transparent p-6 text-[#0F172A] hover:border-[#A5ACC0] hover:bg-white/60"
+        <Link
+          href="/events"
+          className="flex min-h-[360px] flex-col items-center justify-center gap-3 rounded-[22px] border-[1.5px] border-dashed border-[#C7CCDA] bg-transparent p-6 text-[#0F172A] no-underline hover:border-[#A5ACC0] hover:bg-white/60"
         >
           <span className="flex h-[52px] w-[52px] items-center justify-center rounded-2xl bg-[#EEF0FF] text-[#4F46E5]">
             <PlusIcon size={24} />
           </span>
           <span className="text-base font-bold">Start a new event</span>
           <span className="max-w-[200px] text-center text-[13px] leading-normal text-[#64748B]">
-            From scratch, a template, or with the AI planner
+            Describe it to the AI planner and get a ready-made workspace
           </span>
-        </button>
+        </Link>
       </div>
     </section>
   );

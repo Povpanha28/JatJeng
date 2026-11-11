@@ -26,7 +26,14 @@ function Kbd({ children }: { children: string }) {
   );
 }
 
-export default function AccountMenu() {
+type AccountMenuProps = {
+  /** "up" opens the menu above the trigger, for placement at the bottom of a sidebar. */
+  placement?: "down" | "up";
+  /** "card" is the bordered top-bar trigger, "row" a full-width sidebar row, "avatar" the rail icon. */
+  variant?: "card" | "row" | "avatar";
+};
+
+export default function AccountMenu({ placement = "down", variant = "card" }: AccountMenuProps) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -70,21 +77,40 @@ export default function AccountMenu() {
         aria-haspopup="menu"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className={`flex min-h-11 cursor-pointer items-center gap-2.5 rounded-[14px] border bg-white py-1 pl-1 pr-2.5 transition-colors ${
-          open ? "border-[#C7CBF5] bg-[#FAFAFF]" : "border-[#E6E8F0] hover:bg-[#F8FAFC]"
-        }`}
+        title={variant === "avatar" ? "Dyna Ou" : undefined}
+        className={
+          variant === "avatar"
+            ? `flex h-11 w-11 cursor-pointer items-center justify-center rounded-xl border-none p-0 transition-colors ${
+                open ? "bg-[#EEF0FF]" : "bg-transparent hover:bg-[#F1F3F9]"
+              }`
+            : variant === "row"
+              ? `flex min-h-12 w-full cursor-pointer items-center gap-2.5 rounded-xl border-none py-1.5 pl-1.5 pr-2.5 text-left transition-colors ${
+                  open ? "bg-[#EEF0FF]" : "bg-transparent hover:bg-[#F1F3F9]"
+                }`
+              : `flex min-h-11 cursor-pointer items-center gap-2.5 rounded-[14px] border bg-white py-1 pl-1 pr-2.5 transition-colors ${
+                  open ? "border-[#C7CBF5] bg-[#FAFAFF]" : "border-[#E6E8F0] hover:bg-[#F8FAFC]"
+                }`
+        }
       >
-        <span className="flex h-[34px] w-[34px] items-center justify-center rounded-[10px] bg-[#E0E7FF] text-[13px] font-bold text-[#3730A3]">
+        <span className="flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-[10px] bg-[#E0E7FF] text-[13px] font-bold text-[#3730A3]">
           DO
         </span>
-        <span className="flex flex-col items-start leading-[1.2]">
-          <span className="text-[13px] font-bold text-[#0F172A]">Dyna Ou</span>
-          <span className="text-xs text-[#64748B]">Event Organizer</span>
-        </span>
-        <ChevronDownIcon
-          size={16}
-          className={`text-[#64748B] transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-        />
+        {variant !== "avatar" && (
+          <>
+            <span
+              className={`flex min-w-0 flex-col items-start leading-[1.2] ${variant === "row" ? "flex-1" : ""}`}
+            >
+              <span className="truncate text-[13px] font-bold text-[#0F172A]">Dyna Ou</span>
+              <span className="truncate text-xs text-[#64748B]">Event Organizer</span>
+            </span>
+            <ChevronDownIcon
+              size={16}
+              className={`shrink-0 text-[#64748B] transition-transform duration-200 ${
+                (placement === "up") !== open ? "rotate-180" : ""
+              }`}
+            />
+          </>
+        )}
       </button>
 
       <AnimatePresence>
@@ -94,11 +120,15 @@ export default function AccountMenu() {
             role="menu"
             aria-label="Account"
             onKeyDown={onMenuKeyDown}
-            initial={{ opacity: 0, y: -6, scale: 0.98 }}
+            initial={{ opacity: 0, y: placement === "up" ? 6 : -6, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -6, scale: 0.98 }}
+            exit={{ opacity: 0, y: placement === "up" ? 6 : -6, scale: 0.98 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="absolute right-0 top-[calc(100%+10px)] z-20 w-[300px] origin-top-right rounded-[20px] border border-[#E6E8F0] bg-white p-2.5 shadow-[0_20px_40px_-12px_rgba(15,23,42,0.18)]"
+            className={`absolute z-50 w-[300px] max-w-[calc(100vw-24px)] rounded-[20px] ${
+              placement === "up"
+                ? "bottom-[calc(100%+8px)] left-0 origin-bottom-left"
+                : "right-0 top-[calc(100%+10px)] origin-top-right"
+            } border border-[#E6E8F0] bg-white p-2.5 shadow-[0_20px_40px_-12px_rgba(15,23,42,0.18)]`}
           >
             {/* Profile header */}
             <div className="flex items-center gap-3 px-2.5 pb-3.5 pt-2">

@@ -43,12 +43,6 @@ export const EVENTS: EventItem[] = [
   { id: "lw", title: "Leadership Workshop", category: "Workshop", status: "Planning", mon: "FEB", day: "08", countdown: "104 days", daysLeft: 104, when: "Mon, 8 Feb 2027 · 08:30", venue: "Siem Reap", guests: 40, progress: 28, members: 5, tint: "#FFEAD9", ink: "#EA580C", inkText: "#C2410C" },
 ];
 
-export const AI_SUGGESTIONS = [
-  "Wedding reception, 300 guests",
-  "Team offsite in Kampot",
-  "Charity run with Bakong sign-ups",
-];
-
 export const getEvent = (id: string) => EVENTS.find((e) => e.id === id);
 
 /** Short event date without year or time, e.g. "Sun, 20 Dec". */
